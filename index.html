@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sathish R — Frontend Web Developer & UI/UX Designer. Responsive websites, WordPress builds and clean, user-focused interfaces.">
+    <meta name="keywords" content="Frontend Developer, UI/UX Designer, WordPress Developer, Web Developer, Portfolio, Sathish R">
+    <meta name="author" content="Sathish R">
+    <meta name="theme-color" content="#0d0c0b">
+    <meta property="og:title" content="Sathish R | Frontend Developer & UI/UX Designer">
+    <meta property="og:description" content="Responsive websites, WordPress builds and clean, user-focused interfaces.">
+    <meta property="og:image" content="images/sathish.jpeg">
+    <title>Sathish R | Frontend Developer & UI/UX Designer</title>
+
+    <!-- Set theme before paint to avoid a flash -->
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+            document.documentElement.classList.add('js');
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- ================= NAVIGATION ================= -->
+    <header class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="#home" class="brand" aria-label="Sathish R — home">
+                <span class="brand-mark">SR</span>
+                <span class="brand-name">Sathish<span class="accent-dot">.</span></span>
+            </a>
+
+            <nav class="nav-links" id="navLinks" aria-label="Primary">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Work</a>
+                <a href="#certifications" class="nav-link">Certificates</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="Sathish_R_Resume.pdf" class="btn btn-solid nav-menu-cta" download>Download resume <i class="fas fa-arrow-down"></i></a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">
+                    <i class="fas fa-moon icon-dark"></i>
+                    <i class="fas fa-sun icon-light"></i>
+                </button>
+                <a href="Sathish_R_Resume.pdf" class="btn btn-sm btn-solid nav-cta" download>
+                    Resume <i class="fas fa-arrow-down"></i>
+                </a>
+                <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+                    <span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- ================= HERO ================= -->
+        <section id="home" class="hero">
+            <div class="hero-bg" aria-hidden="true">
+                <div class="hero-grid"></div>
+                <div class="hero-glow"></div>
+            </div>
+
+            <div class="container hero-inner">
+                <div class="hero-copy">
+                    <div class="eyebrow reveal">
+                        <span class="pulse-dot"></span>
+                        Frontend Developer &amp; UI/UX Designer
+                    </div>
+
+                    <h1 class="hero-title reveal">
+                        Hi, I'm Sathish.<br>
+                        I build websites that <em class="serif">feel premium</em>.
+                    </h1>
+
+                    <p class="hero-role reveal">
+                        <span class="mono">~/</span> <span id="typewriter" class="typewriter">Frontend Developer</span><span class="caret" aria-hidden="true"></span>
+                    </p>
+
+                    <p class="hero-lead reveal">
+                        I create beautiful, responsive, and user-friendly websites with modern technologies,
+                        specializing in frontend development, UI/UX design, and WordPress solutions.
+                    </p>
+
+                    <div class="hero-actions reveal">
+                        <a href="#projects" class="btn btn-solid magnetic">
+                            View my work <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-ghost magnetic">
+                            Let's talk <i class="fas fa-paper-plane"></i>
+                        </a>
+                    </div>
+
+                    <dl class="hero-stats reveal">
+                        <div class="stat">
+                            <dt class="stat-num"><span data-count="1">0</span>+</dt>
+                            <dd>Years experience</dd>
+                        </div>
+                        <div class="stat">
+                            <dt class="stat-num"><span data-count="8">0</span>+</dt>
+                            <dd>Projects shipped</dd>
+                        </div>
+                        <div class="stat">
+                            <dt class="stat-num"><span data-count="3">0</span></dt>
+                            <dd>Certifications</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="hero-visual reveal">
+                    <div class="portrait">
+                        <div class="portrait-ring" aria-hidden="true"></div>
+                        <div class="portrait-frame">
+                            <img src="images/sathish.jpeg" alt="Portrait of Sathish R" width="1280" height="1280">
+                        </div>
+                        <div class="float-card fc-1">
+                            <span class="fc-icon"><i class="fas fa-code"></i></span>
+                            <div><strong>Clean code</strong><small>Semantic &amp; fast</small></div>
+                        </div>
+                        <div class="float-card fc-2">
+                            <span class="fc-icon"><i class="fab fa-figma"></i></span>
+                            <div><strong>Pixel-perfect</strong><small>Figma to web</small></div>
+                        </div>
+                        <div class="float-card fc-3">
+                            <span class="fc-icon"><i class="fab fa-wordpress-simple"></i></span>
+                            <div><strong>WordPress</strong><small>Custom builds</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#about" class="scroll-cue" aria-label="Scroll to About">
+                <span class="mono">Scroll</span>
+                <span class="scroll-line"></span>
+            </a>
+        </section>
+
+        <!-- ================= MARQUEE ================= -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i><span>JavaScript</span><i>✦</i>
+                <span>Bootstrap</span><i>✦</i><span>WordPress</span><i>✦</i><span>Figma</span><i>✦</i>
+                <span>Responsive Design</span><i>✦</i><span>UI/UX</span><i>✦</i><span>SEO</span><i>✦</i>
+                <span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i><span>JavaScript</span><i>✦</i>
+                <span>Bootstrap</span><i>✦</i><span>WordPress</span><i>✦</i><span>Figma</span><i>✦</i>
+                <span>Responsive Design</span><i>✦</i><span>UI/UX</span><i>✦</i><span>SEO</span><i>✦</i>
+            </div>
+        </div>
+
+        <!-- ================= ABOUT ================= -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="kicker"><span class="mono">01</span> About me</span>
+                    <h2 class="section-title">Design-minded developer, <em class="serif">detail-obsessed</em>.</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-photo reveal">
+                        <img src="images/sathish-profile.jpeg" alt="Sathish R standing by a gate" loading="lazy" width="2304" height="3619">
+                        <div class="about-badge">
+                            <span class="about-badge-num">1+</span>
+                            <span>Years of<br>experience</span>
+                        </div>
+                    </div>
+
+                    <div class="about-body">
+                        <h3 class="about-heading reveal">Creative Frontend Developer &amp; UI/UX Designer</h3>
+                        <p class="reveal">
+                            I'm a dedicated <strong>Frontend Web Developer</strong> and <strong>UI/UX Designer</strong>
+                            based in Bangalore, with one year of professional experience in building responsive
+                            websites, WordPress solutions, and creating stunning user interfaces.
+                        </p>
+                        <p class="reveal">
+                            My expertise lies in transforming ideas into beautiful, functional digital experiences. I
+                            believe in clean code, modern design principles, and delivering projects that exceed
+                            expectations.
+                        </p>
+
+                        <ol class="services reveal">
+                            <li class="service">
+                                <span class="mono">01</span>
+                                <h4>Web Development</h4>
+                                <p>Responsive, fast, accessible sites.</p>
+                            </li>
+                            <li class="service">
+                                <span class="mono">02</span>
+                                <h4>UI/UX Design</h4>
+                                <p>Wireframes to polished interfaces.</p>
+                            </li>
+                            <li class="service">
+                                <span class="mono">03</span>
+                                <h4>WordPress</h4>
+                                <p>Custom themes &amp; lead-gen sites.</p>
+                            </li>
+                        </ol>
+
+                        <ul class="info-list reveal">
+                            <li><span>Name</span><strong>Sathish R</strong></li>
+                            <li><span>Location</span><strong>Chidambaram, India</strong></li>
+                            <li><span>Email</span><a href="mailto:rrsathish65@gmail.com">rrsathish65@gmail.com</a></li>
+                            <li><span>Phone</span><a href="tel:+916374363370">+91 63743 63370</a></li>
+                        </ul>
+
+                        <div class="reveal">
+                            <a href="Sathish_R_Resume.pdf" class="btn btn-solid magnetic" download>
+                                Download CV <i class="fas fa-arrow-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SKILLS ================= -->
+        <section id="skills" class="section section-alt">
+            <div class="container">
+                <div class="section-head section-head-split reveal">
+                    <div>
+                        <span class="kicker"><span class="mono">02</span> Skills</span>
+                        <h2 class="section-title">What I bring <em class="serif">to the table</em>.</h2>
+                    </div>
+                    <p class="head-aside">A focused toolkit for turning ideas into fast, responsive websites. Small numbers show my comfort level out of 100.</p>
+                </div>
+
+                <ol class="index">
+                    <li class="index-row reveal">
+                        <span class="index-num mono">01</span>
+                        <h3 class="index-cat">Frontend</h3>
+                        <p class="index-items">
+                            <span>HTML<sup>95</sup></span><span>CSS<sup>90</sup></span><span>Bootstrap<sup>85</sup></span><span>JavaScript<sup>75</sup></span>
+                        </p>
+                    </li>
+                    <li class="index-row reveal">
+                        <span class="index-num mono">02</span>
+                        <h3 class="index-cat">Design</h3>
+                        <p class="index-items">
+                            <span>Figma</span><span>Wireframing</span><span>Canva</span>
+                        </p>
+                    </li>
+                    <li class="index-row reveal">
+                        <span class="index-num mono">03</span>
+                        <h3 class="index-cat">Platforms</h3>
+                        <p class="index-items">
+                            <span>WordPress</span><span>Hostinger</span>
+                        </p>
+                    </li>
+                    <li class="index-row reveal">
+                        <span class="index-num mono">04</span>
+                        <h3 class="index-cat">Media &amp; AI</h3>
+                        <p class="index-items">
+                            <span>Image Editing</span><span>Video Editing</span><span>AI Tools</span>
+                        </p>
+                    </li>
+                    <li class="index-row reveal">
+                        <span class="index-num mono">05</span>
+                        <h3 class="index-cat">Working style</h3>
+                        <p class="index-items index-items-soft">
+                            <span>Quick Learner</span><span>Creative Thinking</span><span>Team Player</span><span>Problem Solving</span>
+                        </p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ================= EXPERIENCE ================= -->
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-head section-head-split reveal">
+                    <div>
+                        <span class="kicker"><span class="mono">03</span> Journey</span>
+                        <h2 class="section-title">Experience &amp; <em class="serif">education</em>.</h2>
+                    </div>
+                    <p class="head-aside">Where I've worked, what I've learned, and the foundation it's built on.</p>
+                </div>
+
+                <ol class="journey">
+                    <li class="j-row is-current reveal">
+                        <div class="j-index">
+                            <span class="j-num serif">01</span>
+                            <span class="j-period mono">Mar 2025 — Present</span>
+                        </div>
+                        <div class="j-role">
+                            <span class="j-now"><span class="pulse-dot"></span>Current role · Full-time</span>
+                            <h3>Web Developer</h3>
+                            <p class="j-org">Plumb5</p>
+                        </div>
+                        <ul class="j-points">
+                            <li>Developed responsive websites and landing pages for clients</li>
+                            <li>Built and customized WordPress websites with modern themes</li>
+                            <li>Created UI layouts and social media creatives</li>
+                            <li>Optimized website performance and improved user experience</li>
+                        </ul>
+                    </li>
+
+                    <li class="j-row reveal">
+                        <div class="j-index">
+                            <span class="j-num serif">02</span>
+                            <span class="j-period mono">Sep 2025 — Oct 2025</span>
+                        </div>
+                        <div class="j-role">
+                            <span class="j-type">Internship</span>
+                            <h3>UI/UX Design Intern</h3>
+                            <p class="j-org">NoviTech R&amp;D Private Limited</p>
+                        </div>
+                        <ul class="j-points">
+                            <li>Created wireframes and UI screens using Figma</li>
+                            <li>Learned and applied UI/UX design principles</li>
+                            <li>Designed application interfaces and dashboard UIs</li>
+                            <li>Collaborated with the design team on various projects</li>
+                        </ul>
+                    </li>
+
+                    <li class="j-row reveal">
+                        <div class="j-index">
+                            <span class="j-num serif">03</span>
+                            <span class="j-period mono">Completed</span>
+                        </div>
+                        <div class="j-role">
+                            <span class="j-type">Education</span>
+                            <h3>B.E. Computer Science Engineering</h3>
+                            <p class="j-org">Mahendra College of Engineering, Salem</p>
+                        </div>
+                        <p class="j-desc">
+                            Bachelor's degree in Computer Science Engineering with a focus on software
+                            development, web technologies, and programming fundamentals.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ================= PROJECTS ================= -->
+        <section id="projects" class="section section-alt">
+            <div class="container">
+                <div class="section-head section-head-split reveal">
+                    <div>
+                        <span class="kicker"><span class="mono">04</span> Selected work</span>
+                        <h2 class="section-title">Featured <em class="serif">projects</em>.</h2>
+                    </div>
+                    <div class="filters" role="tablist" aria-label="Filter projects">
+                        <button class="filter is-active" data-filter="all" role="tab" aria-selected="true">All <sup>9</sup></button>
+                        <button class="filter" data-filter="wordpress" role="tab" aria-selected="false">WordPress <sup>3</sup></button>
+                        <button class="filter" data-filter="code" role="tab" aria-selected="false">Custom code <sup>5</sup></button>
+                        <button class="filter" data-filter="design" role="tab" aria-selected="false">UI/UX <sup>1</sup></button>
+                    </div>
+                </div>
+
+                <div class="pgrid">
+
+                    <a href="https://satvatrealty.in/" target="_blank" rel="noopener" class="pcard reveal" data-cat="wordpress">
+                        <div class="pcard-media"><img src="images/sathvath.png" alt="Satvat Realty website homepage" loading="lazy" width="1919" height="946"></div>
+                        <div class="pcard-body">
+                            <div class="pcard-meta"><span>Real Estate</span><span class="mono">01</span></div>
+                            <div class="pcard-head">
+                                <h3>Satvat Realty</h3>
+                                <span class="pcard-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <p>Premium real estate website designed to showcase properties, highlight amenities, and generate quality leads.</p>
+                            <div class="tags"><span class="tag">WordPress</span><span class="tag">Lead Generation</span></div>
+                        </div>
+                    </a>
+
+                    <a href="https://vanshikanatures.in/" target="_blank" rel="noopener" class="pcard reveal" data-cat="wordpress">
+                        <div class="pcard-media"><img src="images/vansika.png" alt="Vanshika Natures website homepage" loading="lazy" width="1897" height="937"></div>
+                        <div class="pcard-body">
+                            <div class="pcard-meta"><span>Real Estate</span><span class="mono">02</span></div>
+                            <div class="pcard-head">
+                                <h3>Vanshika Natures</h3>
+                                <span class="pcard-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <p>Villa project website showcasing property highlights, amenities, and location advantages with an elegant layout.</p>
+                            <div class="tags"><span class="tag">WordPress</span><span class="tag">Lead Generation</span></div>
+                        </div>
+                    </a>
+
+                    <a href="https://shrishtiaircon.com/" target="_blank" rel="noopener" class="pcard reveal" data-cat="wordpress">
+                        <div class="pcard-media"><img src="images/shrishti.png" alt="Shrishti Aircon website homepage" loading="lazy" width="1919" height="867"></div>
+                        <div class="pcard-body">
+                            <div class="pcard-meta"><span>Business</span><span class="mono">03</span></div>
+                            <div class="pcard-head">
+                                <h3>Shrishti Aircon</h3>
+                                <span class="pcard-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <p>Corporate website for an air conditioning company showcasing services, projects, and expertise.</p>
+                            <div class="tags"><span class="tag">WordPress</span><span class="tag">Responsive</span><span class="tag">SEO</span></div>
+                        </div>
+                    </a>
+
+                    <a href="https://ricetechmachinery.com/" target="_blank" rel="noopener" class="pcard reveal" data-cat="code">
+                        <div class="pcard-media"><img src="images/ricetech.png" alt="Ricetech Machinery website homepage" loading="lazy" width="1918" height="880"></div>
+                        <div class="pcard-body">
+                            <div class="pcard-meta"><span>Industrial</span><span class="mono">04</span></div>
+                            <div class="pcard-head">
+                                <h3>Ricetech Machinery</h3>
+                                <span class="pcard-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <p>Industrial machinery website presenting products, technical specifications, and company information.</p>
+                            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.urjacon.com/" target="_blank" rel="noopener" class="pcard reveal" data-cat="code">
+                        <div class="pcard-media"><img src="images/urjacon.png" alt="Urjacon website homepage" loading="lazy" width="1918" height="868"></div>
+                        <div class="pcard-body">
+                            <div class="pcard-meta"><span>Corporate</span><span class="mono">05</span></div>
+                            <div class="pcard-head">
+                                <h3>Urjacon</h3>
+                                <span class="pcard-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <p>Corporate website presenting company vision, services, and sustainable energy solutions.</p>
+                            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+                        </div>
+                    </a>
+
+                    <a href="http://dmcbesantnagar.com/" target="_blank" rel="noopener" class="pcard reveal" data-cat="code">
+                        <div class="pcard-media"><img src="images/dmc.png" alt="DMC Besant Nagar website homepage" loading="lazy" width="1912" height="868"></div>
+                        <div class="pcard-body">
+                            <div class="pcard-meta"><span>Restaurant</span><span class="mono">06</span></div>
+                            <div class="pcard-head">
+                                <h3>DMC Besant Nagar</h3>
+                                <span class="pcard-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <p>Restaurant website showcasing menu items, food specialties, and brand identity.</p>
+                            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.trulyy.in/" target="_blank" rel="noopener" class="pcard reveal" data-cat="code">
+                        <div class="pcard-media"><img src="images/trully.png" alt="Trulyy website homepage" loading="lazy" width="1906" height="897"></div>
+                        <div class="pcard-body">
+                            <div class="pcard-meta"><span>Brand Website</span><span class="mono">07</span></div>
+                            <div class="pcard-head">
+                                <h3>Trulyy</h3>
+                                <span class="pcard-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <p>Brand-focused website built with elegant storytelling and visual branding elements.</p>
+                            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+                        </div>
+                    </a>
+
+                    <a href="https://csssecure.in/" target="_blank" rel="noopener" class="pcard reveal" data-cat="code">
+                        <div class="pcard-media"><img src="images/css.png" alt="CSS Secure website homepage" loading="lazy" width="1919" height="905"></div>
+                        <div class="pcard-body">
+                            <div class="pcard-meta"><span>Security Services</span><span class="mono">08</span></div>
+                            <div class="pcard-head">
+                                <h3>CSS Secure</h3>
+                                <span class="pcard-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                            <p>Security services website with strong branding, service clarity, and a lead-focused contact structure.</p>
+                            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+                        </div>
+                    </a>
+
+                    <div class="pcard pcard-wide reveal" data-cat="design">
+                        <div class="pcard-media"><img src="images/hr.png" alt="i Talento HR dashboard design in Figma" loading="lazy" width="1880" height="884"></div>
+                        <div class="pcard-body">
+                            <div class="pcard-meta"><span>UI/UX Design</span><span class="mono">09</span></div>
+                            <div class="pcard-head">
+                                <h3>i Talento</h3>
+                                <span class="pcard-lock"><i class="fas fa-lock"></i> Private Figma</span>
+                            </div>
+                            <p>Figma-based HR management dashboard design featuring a clean layout, modern components, and a user-centered workflow.</p>
+                            <div class="tags"><span class="tag">Figma</span><span class="tag">Dashboard UI</span><span class="tag">Wireframes</span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CERTIFICATIONS ================= -->
+        <section id="certifications" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="kicker"><span class="mono">05</span> Certificates</span>
+                    <h2 class="section-title">Always <em class="serif">learning</em>.</h2>
+                </div>
+
+                <div class="certs">
+                    <a href="certificates/uiux-certificate.pdf" target="_blank" rel="noopener" class="cert card spotlight reveal">
+                        <div class="cert-top">
+                            <span class="cert-num serif">01</span>
+                            <span class="mono cert-id">UIUXINF291</span>
+                        </div>
+                        <h3>UI/UX Design Internship</h3>
+                        <p>One-month intensive internship in UI/UX Design, creating wireframes and application interfaces.</p>
+                        <div class="cert-foot">
+                            <span>NoviTech R&amp;D · Sep – Oct 2025</span>
+                            <span class="cert-view">View <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="certificates/fullstack-certificate.pdf" target="_blank" rel="noopener" class="cert card spotlight reveal">
+                        <div class="cert-top">
+                            <span class="cert-num serif">02</span>
+                            <span class="mono cert-id">NT_B48FSD287</span>
+                        </div>
+                        <h3>Full Stack Development</h3>
+                        <p>30-day MasterClass in Full Stack Development covering modern web technologies.</p>
+                        <div class="cert-foot">
+                            <span>NoviTech R&amp;D · Sep – Nov 2025</span>
+                            <span class="cert-view">View <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="certificates/dataanalytics-certificate.pdf" target="_blank" rel="noopener" class="cert card spotlight reveal">
+                        <div class="cert-top">
+                            <span class="cert-num serif">03</span>
+                            <span class="mono cert-id">NT_B8DA037</span>
+                        </div>
+                        <h3>Data Analytics</h3>
+                        <p>30-day MasterClass in Data Analytics, learning data visualization and analysis.</p>
+                        <div class="cert-foot">
+                            <span>NoviTech R&amp;D · Jan – Feb 2025</span>
+                            <span class="cert-view">View <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT ================= -->
+        <section id="contact" class="section section-alt contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-intro reveal">
+                        <span class="kicker"><span class="mono">06</span> Contact</span>
+                        <h2 class="contact-title">Have a project in mind?<br><em class="serif">Let's work together.</em></h2>
+                        <p class="contact-lead">Feel free to reach out for project inquiries or collaboration opportunities. I usually reply within a day.</p>
+
+                        <div class="contact-rows">
+                            <div class="contact-row">
+                                <span class="card-icon"><i class="fas fa-envelope"></i></span>
+                                <div>
+                                    <small>Email</small>
+                                    <a href="mailto:rrsathish65@gmail.com">rrsathish65@gmail.com</a>
+                                </div>
+                                <button class="icon-btn copy-btn" type="button" data-copy="rrsathish65@gmail.com" aria-label="Copy email address">
+                                    <i class="far fa-copy"></i>
+                                </button>
+                            </div>
+                            <div class="contact-row">
+                                <span class="card-icon"><i class="fas fa-phone"></i></span>
+                                <div>
+                                    <small>Phone</small>
+                                    <a href="tel:+916374363370">+91 63743 63370</a>
+                                </div>
+                            </div>
+                            <div class="contact-row">
+                                <span class="card-icon"><i class="fas fa-location-dot"></i></span>
+                                <div>
+                                    <small>Location</small>
+                                    <span>Chidambaram, India</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="socials">
+                            <a href="https://www.linkedin.com/in/sathish-r-9b7a19340" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Sathishr1612" target="_blank" rel="noopener" class="icon-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="mailto:rrsathish65@gmail.com" class="icon-btn" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <form id="contactForm" class="contact-form card reveal" novalidate>
+                        <div class="field-row">
+                            <div class="field">
+                                <input type="text" id="name" name="name" placeholder=" " required autocomplete="name">
+                                <label for="name">Your name</label>
+                            </div>
+                            <div class="field">
+                                <input type="email" id="email" name="email" placeholder=" " required autocomplete="email">
+                                <label for="email">Your email</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <input type="text" id="subject" name="subject" placeholder=" " required>
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="field">
+                            <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+                            <label for="message">Tell me about your project</label>
+                        </div>
+                        <button type="submit" class="btn btn-solid btn-block magnetic">
+                            Send message <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <p class="form-note">Opens your email app with the message ready to send.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-cta">
+                <p class="footer-big">Let's build something <em class="serif">great</em>.</p>
+                <a href="mailto:rrsathish65@gmail.com" class="btn btn-solid magnetic">rrsathish65@gmail.com <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2025</span> Sathish R. All rights reserved.</p>
+                <nav class="footer-nav" aria-label="Footer">
+                    <a href="#about">About</a>
+                    <a href="#projects">Work</a>
+                    <a href="#contact">Contact</a>
+                    <a href="https://www.linkedin.com/in/sathish-r-9b7a19340" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://github.com/Sathishr1612" target="_blank" rel="noopener">GitHub</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#home" id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
