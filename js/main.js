@@ -60,14 +60,56 @@
     // ========================================
     const nav = document.getElementById('nav');
     const backToTop = document.getElementById('backToTop');
+    const progressBar = document.getElementById('scrollProgress');
+    const hero = document.getElementById('home');
+    const parallaxEls = reduceMotion ? [] : document.querySelectorAll('[data-speed]');
     let ticking = false;
+    let lastY = window.scrollY;
 
     function onScroll() {
         const y = window.scrollY;
+        const vh = window.innerHeight;
+        const max = document.documentElement.scrollHeight - vh;
+        const p = max > 0 ? Math.min(y / max, 1) : 0;
+
         nav.classList.toggle('is-scrolled', y > 30);
         backToTop.classList.toggle('is-visible', y > 700);
+        progressBar.style.setProperty('--p', p.toFixed(4));
+        backToTop.style.setProperty('--p', p.toFixed(4));
+
+        // Hide the nav while reading down, bring it back on any scroll up
+        if (!document.body.classList.contains('menu-open')) {
+            if (y > lastY + 6 && y > 400) nav.classList.add('is-hidden');
+            else if (y < lastY - 6 || y <= 400) nav.classList.remove('is-hidden');
+        }
+
+        if (!reduceMotion) {
+            // Hero content drifts up and fades as you leave it
+            if (y < vh * 1.2) hero.style.setProperty('--hp', Math.min(y / vh, 1).toFixed(3));
+
+            parallaxEls.forEach(function (el) {
+                const offset = el._center - y - vh / 2;
+                if (Math.abs(offset) > vh * 1.5) return;
+                el.style.setProperty('--py', (offset * -el._speed).toFixed(1) + 'px');
+            });
+        }
+
+        lastY = y;
         ticking = false;
     }
+
+    // Cache each parallax element's resting centre (page coords, without its own shift)
+    function measureParallax() {
+        parallaxEls.forEach(function (el) {
+            el.style.setProperty('--py', '0px');
+            const r = el.getBoundingClientRect();
+            el._center = r.top + window.scrollY + r.height / 2;
+            el._speed = parseFloat(el.dataset.speed) || 0;
+        });
+    }
+
+    measureParallax();
+    window.addEventListener('resize', function () { measureParallax(); onScroll(); });
 
     window.addEventListener('scroll', function () {
         if (!ticking) {
@@ -99,6 +141,40 @@
     // ========================================
     // REVEAL ON SCROLL (with sibling stagger)
     // ========================================
+    // Wrap every word of .split headings so each can rise from a mask
+    function splitWords(el) {
+        let i = 0;
+        (function walk(node) {
+            Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+                if (child.nodeType === 1) { walk(child); return; }
+                if (child.nodeType !== 3 || !child.textContent.trim()) return;
+                const frag = document.createDocumentFragment();
+                child.textContent.split(/(\s+)/).forEach(function (part) {
+                    if (!part) return;
+                    if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+                    const w = document.createElement('span');
+                    const inner = document.createElement('span');
+                    w.className = 'w';
+                    inner.className = 'w-i';
+                    inner.style.setProperty('--i', i++);
+                    inner.textContent = part;
+                    w.appendChild(inner);
+                    frag.appendChild(w);
+                });
+                node.replaceChild(frag, child);
+            });
+        })(el);
+    }
+
+    document.querySelectorAll('.split').forEach(splitWords);
+
+    // Per-item index for chips and bullet points
+    document.querySelectorAll('.index-items, .j-points').forEach(function (list) {
+        Array.prototype.forEach.call(list.children, function (item, i) {
+            item.style.setProperty('--ci', i);
+        });
+    });
+
     const reveals = document.querySelectorAll('.reveal');
 
     reveals.forEach(function (el) {
@@ -111,14 +187,19 @@
 
     const revealObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-in');
-                revealObserver.unobserve(entry.target);
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            el.classList.add('is-in');
+            revealObserver.unobserve(el);
+            // Drop the stagger delay once in, so hover effects respond instantly
+            if (el.classList.contains('reveal')) {
+                setTimeout(function () { el.style.setProperty('--d', '0ms'); }, 2400);
             }
         });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
     reveals.forEach(function (el) { revealObserver.observe(el); });
+    document.querySelectorAll('.split').forEach(function (el) { revealObserver.observe(el); });
 
     // ========================================
     // COUNTERS + SKILL BARS
@@ -222,6 +303,85 @@
                 btn.style.transform = '';
             });
         });
+
+        // 3D tilt with a glare that follows the pointer
+        document.querySelectorAll('.tilt').forEach(function (card) {
+            card.addEventListener('pointermove', function (e) {
+                const r = card.getBoundingClientRect();
+                const px = (e.clientX - r.left) / r.width;
+                const py = (e.clientY - r.top) / r.height;
+                card.classList.add('is-tilting');
+                card.style.setProperty('--mx', px * 100 + '%');
+                card.style.setProperty('--my', py * 100 + '%');
+                card.style.transform = 'perspective(1000px) rotateX(' + ((0.5 - py) * 6).toFixed(2) +
+                    'deg) rotateY(' + ((px - 0.5) * 8).toFixed(2) + 'deg) translateY(-6px)';
+            });
+            card.addEventListener('pointerleave', function () {
+                card.classList.remove('is-tilting');
+                card.style.transform = '';
+            });
+        });
+
+        // Hero float cards drift against the pointer for depth
+        hero.addEventListener('pointermove', function (e) {
+            hero.style.setProperty('--hx', (e.clientX / window.innerWidth - 0.5).toFixed(3));
+            hero.style.setProperty('--hy', (e.clientY / window.innerHeight - 0.5).toFixed(3));
+        });
+        hero.addEventListener('pointerleave', function () {
+            hero.style.setProperty('--hx', 0);
+            hero.style.setProperty('--hy', 0);
+        });
+
+        // Cursor follower ring — grows on links, becomes a "View" bubble on projects
+        const cursor = document.getElementById('cursor');
+        let cx = -100, cy = -100, tx = -100, ty = -100;
+
+        document.addEventListener('pointermove', function (e) {
+            tx = e.clientX;
+            ty = e.clientY;
+            cursor.classList.add('is-active');
+            const target = e.target.closest ? e.target : null;
+            cursor.classList.toggle('is-view', !!(target && target.closest('a.pcard')));
+            cursor.classList.toggle('is-link', !!(target && target.closest('a, button, label, input, textarea')) &&
+                !cursor.classList.contains('is-view'));
+        });
+        document.addEventListener('pointerleave', function () { cursor.classList.remove('is-active'); });
+
+        (function follow() {
+            cx += (tx - cx) * 0.2;
+            cy += (ty - cy) * 0.2;
+            cursor.style.transform = 'translate(' + cx.toFixed(1) + 'px, ' + cy.toFixed(1) + 'px)';
+            requestAnimationFrame(follow);
+        })();
+    }
+
+    // ========================================
+    // MARQUEE reacts to scroll speed and direction
+    // ========================================
+    const marquee = document.getElementById('marquee');
+    const marqueeTrack = marquee && marquee.querySelector('.marquee-track');
+    const marqueeAnim = marqueeTrack && marqueeTrack.getAnimations ? marqueeTrack.getAnimations()[0] : null;
+
+    if (marqueeAnim && !reduceMotion) {
+        let prevY = window.scrollY;
+        let velocity = 0;
+        let rate = 1;
+
+        (function loop() {
+            const y = window.scrollY;
+            velocity += ((y - prevY) - velocity) * 0.15;
+            prevY = y;
+            const boost = Math.max(-6, Math.min(6, velocity * 0.25));
+            const dir = boost < -0.2 ? -1 : 1;
+            const next = Math.round(dir * (1 + Math.abs(boost)) * 20) / 20;
+            if (next !== rate) {
+                rate = next;
+                if (marqueeAnim.updatePlaybackRate) marqueeAnim.updatePlaybackRate(rate);
+                else marqueeAnim.playbackRate = rate;
+            }
+            marquee.style.setProperty('--skew', Math.max(-12, Math.min(12, -velocity * 0.4)).toFixed(2) + 'deg');
+            requestAnimationFrame(loop);
+        })();
     }
 
     // ========================================

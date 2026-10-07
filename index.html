@@ -34,6 +34,8 @@
 <body>
 
     <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-label">View</span></div>
 
     <!-- ================= NAVIGATION ================= -->
     <header class="nav" id="nav">
@@ -73,8 +75,9 @@
         <!-- ================= HERO ================= -->
         <section id="home" class="hero">
             <div class="hero-bg" aria-hidden="true">
-                <div class="hero-grid"></div>
-                <div class="hero-glow"></div>
+                <div class="hero-grid" data-speed="0.1"></div>
+                <div class="hero-glow" data-speed="0.25"></div>
+                <div class="hero-glow hero-glow-2" data-speed="-0.15"></div>
             </div>
 
             <div class="container hero-inner">
@@ -84,7 +87,7 @@
                         Frontend Developer &amp; UI/UX Designer
                     </div>
 
-                    <h1 class="hero-title reveal">
+                    <h1 class="hero-title split">
                         Hi, I'm Sathish.<br>
                         I build websites that <em class="serif">feel premium</em>.
                     </h1>
@@ -123,8 +126,8 @@
                     </dl>
                 </div>
 
-                <div class="hero-visual reveal">
-                    <div class="portrait">
+                <div class="hero-visual reveal reveal-scale">
+                    <div class="portrait" data-speed="-0.08">
                         <div class="portrait-ring" aria-hidden="true"></div>
                         <div class="portrait-frame">
                             <img src="images/sathish.jpeg" alt="Portrait of Sathish R" width="1280" height="1280">
@@ -152,7 +155,7 @@
         </section>
 
         <!-- ================= MARQUEE ================= -->
-        <div class="marquee" aria-hidden="true">
+        <div class="marquee" id="marquee" aria-hidden="true">
             <div class="marquee-track">
                 <span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i><span>JavaScript</span><i>✦</i>
                 <span>Bootstrap</span><i>✦</i><span>WordPress</span><i>✦</i><span>Figma</span><i>✦</i>
@@ -168,11 +171,11 @@
             <div class="container">
                 <div class="section-head reveal">
                     <span class="kicker"><span class="mono">01</span> About me</span>
-                    <h2 class="section-title">Design-minded developer, <em class="serif">detail-obsessed</em>.</h2>
+                    <h2 class="section-title split">Design-minded developer, <em class="serif">detail-obsessed</em>.</h2>
                 </div>
 
                 <div class="about-grid">
-                    <div class="about-photo reveal">
+                    <div class="about-photo reveal reveal-clip">
                         <img src="images/sathish-profile.jpeg" alt="Sathish R standing by a gate" loading="lazy" width="2304" height="3619">
                         <div class="about-badge">
                             <span class="about-badge-num">1+</span>
@@ -234,7 +237,7 @@
                 <div class="section-head section-head-split reveal">
                     <div>
                         <span class="kicker"><span class="mono">02</span> Skills</span>
-                        <h2 class="section-title">What I bring <em class="serif">to the table</em>.</h2>
+                        <h2 class="section-title split">What I bring <em class="serif">to the table</em>.</h2>
                     </div>
                     <p class="head-aside">A focused toolkit for turning ideas into fast, responsive websites. Small numbers show my comfort level out of 100.</p>
                 </div>
@@ -285,7 +288,7 @@
                 <div class="section-head section-head-split reveal">
                     <div>
                         <span class="kicker"><span class="mono">03</span> Journey</span>
-                        <h2 class="section-title">Experience &amp; <em class="serif">education</em>.</h2>
+                        <h2 class="section-title split">Experience &amp; <em class="serif">education</em>.</h2>
                     </div>
                     <p class="head-aside">Where I've worked, what I've learned, and the foundation it's built on.</p>
                 </div>
@@ -352,7 +355,7 @@
                 <div class="section-head section-head-split reveal">
                     <div>
                         <span class="kicker"><span class="mono">04</span> Selected work</span>
-                        <h2 class="section-title">Featured <em class="serif">projects</em>.</h2>
+                        <h2 class="section-title split">Featured <em class="serif">projects</em>.</h2>
                     </div>
                     <div class="filters" role="tablist" aria-label="Filter projects">
                         <button class="filter is-active" data-filter="all" role="tab" aria-selected="true">All <sup>9</sup></button>
@@ -364,7 +367,7 @@
 
                 <div class="pgrid">
 
-                    <a href="https://satvatrealty.in/" target="_blank" rel="noopener" class="pcard reveal" data-cat="wordpress">
+                    <a href="https://satvatrealty.in/" target="_blank" rel="noopener" class="pcard reveal tilt" data-cat="wordpress">
                         <div class="pcard-media"><img src="images/sathvath.png" alt="Satvat Realty website homepage" loading="lazy" width="1919" height="946"></div>
                         <div class="pcard-body">
                             <div class="pcard-meta"><span>Real Estate</span><span class="mono">01</span></div>
@@ -377,7 +380,7 @@
                         </div>
                     </a>
 
-                    <a href="https://vanshikanatures.in/" target="_blank" rel="noopener" class="pcard reveal" data-cat="wordpress">
+                    <a href="https://vanshikanatures.in/" target="_blank" rel="noopener" class="pcard reveal tilt" data-cat="wordpress">
                         <div class="pcard-media"><img src="images/vansika.png" alt="Vanshika Natures website homepage" loading="lazy" width="1897" height="937"></div>
                         <div class="pcard-body">
                             <div class="pcard-meta"><span>Real Estate</span><span class="mono">02</span></div>
@@ -390,7 +393,7 @@
                         </div>
                     </a>
 
-                    <a href="https://shrishtiaircon.com/" target="_blank" rel="noopener" class="pcard reveal" data-cat="wordpress">
+                    <a href="https://shrishtiaircon.com/" target="_blank" rel="noopener" class="pcard reveal tilt" data-cat="wordpress">
                         <div class="pcard-media"><img src="images/shrishti.png" alt="Shrishti Aircon website homepage" loading="lazy" width="1919" height="867"></div>
                         <div class="pcard-body">
                             <div class="pcard-meta"><span>Business</span><span class="mono">03</span></div>
@@ -403,7 +406,7 @@
                         </div>
                     </a>
 
-                    <a href="https://ricetechmachinery.com/" target="_blank" rel="noopener" class="pcard reveal" data-cat="code">
+                    <a href="https://ricetechmachinery.com/" target="_blank" rel="noopener" class="pcard reveal tilt" data-cat="code">
                         <div class="pcard-media"><img src="images/ricetech.png" alt="Ricetech Machinery website homepage" loading="lazy" width="1918" height="880"></div>
                         <div class="pcard-body">
                             <div class="pcard-meta"><span>Industrial</span><span class="mono">04</span></div>
@@ -416,7 +419,7 @@
                         </div>
                     </a>
 
-                    <a href="https://www.urjacon.com/" target="_blank" rel="noopener" class="pcard reveal" data-cat="code">
+                    <a href="https://www.urjacon.com/" target="_blank" rel="noopener" class="pcard reveal tilt" data-cat="code">
                         <div class="pcard-media"><img src="images/urjacon.png" alt="Urjacon website homepage" loading="lazy" width="1918" height="868"></div>
                         <div class="pcard-body">
                             <div class="pcard-meta"><span>Corporate</span><span class="mono">05</span></div>
@@ -429,7 +432,7 @@
                         </div>
                     </a>
 
-                    <a href="http://dmcbesantnagar.com/" target="_blank" rel="noopener" class="pcard reveal" data-cat="code">
+                    <a href="http://dmcbesantnagar.com/" target="_blank" rel="noopener" class="pcard reveal tilt" data-cat="code">
                         <div class="pcard-media"><img src="images/dmc.png" alt="DMC Besant Nagar website homepage" loading="lazy" width="1912" height="868"></div>
                         <div class="pcard-body">
                             <div class="pcard-meta"><span>Restaurant</span><span class="mono">06</span></div>
@@ -442,7 +445,7 @@
                         </div>
                     </a>
 
-                    <a href="https://www.trulyy.in/" target="_blank" rel="noopener" class="pcard reveal" data-cat="code">
+                    <a href="https://www.trulyy.in/" target="_blank" rel="noopener" class="pcard reveal tilt" data-cat="code">
                         <div class="pcard-media"><img src="images/trully.png" alt="Trulyy website homepage" loading="lazy" width="1906" height="897"></div>
                         <div class="pcard-body">
                             <div class="pcard-meta"><span>Brand Website</span><span class="mono">07</span></div>
@@ -455,7 +458,7 @@
                         </div>
                     </a>
 
-                    <a href="https://csssecure.in/" target="_blank" rel="noopener" class="pcard reveal" data-cat="code">
+                    <a href="https://csssecure.in/" target="_blank" rel="noopener" class="pcard reveal tilt" data-cat="code">
                         <div class="pcard-media"><img src="images/css.png" alt="CSS Secure website homepage" loading="lazy" width="1919" height="905"></div>
                         <div class="pcard-body">
                             <div class="pcard-meta"><span>Security Services</span><span class="mono">08</span></div>
@@ -468,7 +471,7 @@
                         </div>
                     </a>
 
-                    <div class="pcard pcard-wide reveal" data-cat="design">
+                    <div class="pcard pcard-wide reveal tilt" data-cat="design">
                         <div class="pcard-media"><img src="images/hr.png" alt="i Talento HR dashboard design in Figma" loading="lazy" width="1880" height="884"></div>
                         <div class="pcard-body">
                             <div class="pcard-meta"><span>UI/UX Design</span><span class="mono">09</span></div>
@@ -490,11 +493,11 @@
             <div class="container">
                 <div class="section-head reveal">
                     <span class="kicker"><span class="mono">05</span> Certificates</span>
-                    <h2 class="section-title">Always <em class="serif">learning</em>.</h2>
+                    <h2 class="section-title split">Always <em class="serif">learning</em>.</h2>
                 </div>
 
                 <div class="certs">
-                    <a href="certificates/uiux-certificate.pdf" target="_blank" rel="noopener" class="cert card spotlight reveal">
+                    <a href="certificates/uiux-certificate.pdf" target="_blank" rel="noopener" class="cert card spotlight reveal tilt">
                         <div class="cert-top">
                             <span class="cert-num serif">01</span>
                             <span class="mono cert-id">UIUXINF291</span>
@@ -507,7 +510,7 @@
                         </div>
                     </a>
 
-                    <a href="certificates/fullstack-certificate.pdf" target="_blank" rel="noopener" class="cert card spotlight reveal">
+                    <a href="certificates/fullstack-certificate.pdf" target="_blank" rel="noopener" class="cert card spotlight reveal tilt">
                         <div class="cert-top">
                             <span class="cert-num serif">02</span>
                             <span class="mono cert-id">NT_B48FSD287</span>
@@ -520,7 +523,7 @@
                         </div>
                     </a>
 
-                    <a href="certificates/dataanalytics-certificate.pdf" target="_blank" rel="noopener" class="cert card spotlight reveal">
+                    <a href="certificates/dataanalytics-certificate.pdf" target="_blank" rel="noopener" class="cert card spotlight reveal tilt">
                         <div class="cert-top">
                             <span class="cert-num serif">03</span>
                             <span class="mono cert-id">NT_B8DA037</span>
@@ -542,7 +545,7 @@
                 <div class="contact-grid">
                     <div class="contact-intro reveal">
                         <span class="kicker"><span class="mono">06</span> Contact</span>
-                        <h2 class="contact-title">Have a project in mind?<br><em class="serif">Let's work together.</em></h2>
+                        <h2 class="contact-title split">Have a project in mind?<br><em class="serif">Let's work together.</em></h2>
                         <p class="contact-lead">Feel free to reach out for project inquiries or collaboration opportunities. I usually reply within a day.</p>
 
                         <div class="contact-rows">
@@ -612,7 +615,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-cta">
-                <p class="footer-big">Let's build something <em class="serif">great</em>.</p>
+                <p class="footer-big split">Let's build something <em class="serif">great</em>.</p>
                 <a href="mailto:rrsathish65@gmail.com" class="btn btn-solid magnetic">rrsathish65@gmail.com <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="footer-bottom">
