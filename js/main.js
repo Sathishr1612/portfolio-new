@@ -228,34 +228,15 @@
     document.querySelectorAll('[data-count]').forEach(function (el) { oneShot.observe(el); });
 
     // ========================================
-    // TYPEWRITER
+    // LOCAL TIME (hero meta row)
     // ========================================
-    const roles = ['Frontend Developer', 'UI/UX Designer', 'WordPress Developer'];
-    const typeEl = document.getElementById('typewriter');
+    const timeEl = document.getElementById('localTime');
 
-    if (typeEl && !reduceMotion) {
-        let roleIndex = 0;
-        let charIndex = roles[0].length;
-        let deleting = true;
-
-        function type() {
-            const word = roles[roleIndex];
-            charIndex += deleting ? -1 : 1;
-            typeEl.textContent = word.substring(0, charIndex);
-
-            let delay = deleting ? 45 : 95;
-            if (!deleting && charIndex === word.length) {
-                delay = 2200;
-                deleting = true;
-            } else if (deleting && charIndex === 0) {
-                deleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
-                delay = 350;
-            }
-            setTimeout(type, delay);
-        }
-
-        setTimeout(type, 2400);
+    if (timeEl) {
+        const fmt = new Intl.DateTimeFormat('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Kolkata' });
+        const tickTime = function () { timeEl.textContent = fmt.format(new Date()); };
+        tickTime();
+        setInterval(tickTime, 15000);
     }
 
     // ========================================
@@ -320,16 +301,6 @@
                 card.classList.remove('is-tilting');
                 card.style.transform = '';
             });
-        });
-
-        // Hero float cards drift against the pointer for depth
-        hero.addEventListener('pointermove', function (e) {
-            hero.style.setProperty('--hx', (e.clientX / window.innerWidth - 0.5).toFixed(3));
-            hero.style.setProperty('--hy', (e.clientY / window.innerHeight - 0.5).toFixed(3));
-        });
-        hero.addEventListener('pointerleave', function () {
-            hero.style.setProperty('--hx', 0);
-            hero.style.setProperty('--hy', 0);
         });
 
         // Cursor follower ring — grows on links, becomes a "View" bubble on projects
